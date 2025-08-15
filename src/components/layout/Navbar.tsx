@@ -5,7 +5,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 
 const Navbar = ({ setOpenBudgeting, setOpenCalendar }: NavbarProps) => {
-  const [showUser, setShowUser] = useState(true);
+  const [showUser, setShowUser] = useState(false);
   return (
     <nav className="z-20 fixed top-0 left-0 w-screen h-16 md:h-20 bg-[#191919] flex items-center justify-between md:px-10 px-4">
       <Image
