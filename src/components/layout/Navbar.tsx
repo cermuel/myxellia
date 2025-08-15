@@ -1,10 +1,14 @@
 import { constants } from "@/constants";
 import Image from "next/image";
-import React from "react";
+import React, { Dispatch } from "react";
 
-const Navbar = () => {
+interface NavbarProps {
+  setOpenCalendar: Dispatch<boolean>;
+  setOpenBudgeting: Dispatch<boolean>;
+}
+const Navbar = ({ setOpenBudgeting, setOpenCalendar }: NavbarProps) => {
   return (
-    <nav className="fixed top-0 left-0 w-screen h-16 md:h-20 bg-[#191919] flex items-center justify-between md:px-10 px-4">
+    <nav className="z-10 fixed top-0 left-0 w-screen h-16 md:h-20 bg-[#191919] flex items-center justify-between md:px-10 px-4">
       <Image
         src={"/images/logo.svg"}
         alt="Myxellia"
@@ -23,7 +27,18 @@ const Navbar = () => {
       />
       <div className="flex items-center gap-2.5 md:gap-4">
         {constants.MAIN_NAV_TABS.map((tab) => (
-          <button key={tab}>
+          <button
+            key={tab}
+            className="cursor-pointer"
+            onClick={() => {
+              if (tab === "/icons/calendar.svg") {
+                setOpenCalendar(true);
+              }
+              if (tab === "/icons/calculator.svg") {
+                setOpenBudgeting(true);
+              }
+            }}
+          >
             <Image
               src={tab}
               alt={`${tab.slice(6)} icon`}
