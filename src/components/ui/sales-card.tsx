@@ -9,6 +9,7 @@ import {
   Tooltip,
   Legend,
   ChartOptions,
+  Chart,
 } from "chart.js";
 import type { SalesCardProps } from "@/types/components";
 import Image from "next/image";
@@ -22,7 +23,7 @@ const SalesCard = ({
   stats,
   dateRange,
 }: SalesCardProps) => {
-  const chartRef = useRef<any>(null);
+  const chartRef = useRef<Chart<"bar"> | null>(null);
   const [showStats, setShowStats] = useState(true);
   const [showChart, setShowChart] = useState(true);
 

@@ -3,7 +3,6 @@ import MetricsSection from "@/components/ui/metric-section";
 import OverviewCard from "@/components/ui/overview-card";
 import SalesCard from "@/components/ui/sales-card";
 import { constants } from "@/constants";
-import Image from "next/image";
 
 export default function Home() {
   return (

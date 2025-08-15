@@ -1,3 +1,4 @@
+import type { IconType } from "react-icons";
 import type {
   BUDGET,
   CHART_DATA,
@@ -6,6 +7,10 @@ import type {
   NAV_TABS,
   OVERVIEW,
 } from "@/types/constants";
+import { PiUsersFourFill } from "react-icons/pi";
+import { TiUser } from "react-icons/ti";
+import { IoIosLock } from "react-icons/io";
+import { TbAuth2Fa, TbLogout2 } from "react-icons/tb";
 
 const MAIN_NAV_TABS: string[] = [
   "/icons/bell.svg",
@@ -120,6 +125,14 @@ const BUDGET_DETAILS: BUDGET[] = [
     icon: "/icons/chart.svg",
   },
 ];
+
+const USER_ACTIONS: { icon: IconType; title: string }[] = [
+  { icon: PiUsersFourFill, title: "Teams" },
+  { icon: TiUser, title: "Contact Person" },
+  { icon: IoIosLock, title: "Change Password" },
+  { icon: TbAuth2Fa, title: "2-Factor Authentication" },
+  { icon: TbLogout2, title: "Logout" },
+];
 export const constants = {
   MAIN_NAV_TABS,
   SECONDARY_NAV_TABS,
@@ -129,4 +142,5 @@ export const constants = {
   CHART_STATS,
   CHART_LABELS,
   BUDGET_DETAILS,
+  USER_ACTIONS,
 };
