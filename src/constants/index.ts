@@ -1,4 +1,5 @@
 import type {
+  BUDGET,
   CHART_DATA,
   CHART_STAT,
   METRICS,
@@ -102,6 +103,23 @@ const CHART_LABELS: string[] = [
   "Aug",
   "Sep",
 ];
+const BUDGET_DETAILS: BUDGET[] = [
+  {
+    title: "Set up annual budgets by account category",
+    text: "Allocate funds across income and expense lines with full visibility.",
+    icon: "/icons/settings.svg",
+  },
+  {
+    title: "Track actuals vs budget in real time",
+    text: "See how your community is performing against plan, month by month.",
+    icon: "/icons/trend-up.svg",
+  },
+  {
+    title: "Adjust figures and forecast with ease",
+    text: "Edit amounts, apply percentage changes, or roll forward last year’s data—all in one place.",
+    icon: "/icons/chart.svg",
+  },
+];
 export const constants = {
   MAIN_NAV_TABS,
   SECONDARY_NAV_TABS,
@@ -110,4 +128,5 @@ export const constants = {
   CHART_DATA_SETS,
   CHART_STATS,
   CHART_LABELS,
+  BUDGET_DETAILS,
 };

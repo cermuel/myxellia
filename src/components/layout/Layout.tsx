@@ -3,6 +3,7 @@ import React, { ReactNode, useState } from "react";
 import Navbar from "./Navbar";
 import SecondaryNavbar from "./SecondaryNavbar";
 import CalendarDrawer from "../shared/Calendar";
+import Budgeting from "../shared/Budgeting";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   const [openCalendar, setOpenCalendar] = useState(false);
@@ -15,6 +16,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       />
       <SecondaryNavbar />
       <CalendarDrawer open={openCalendar} setIsOpen={setOpenCalendar} />
+      <Budgeting open={openBudget} setIsOpen={setOpenBudget} />
       <div className="pb-5"> {children}</div>
     </main>
   );

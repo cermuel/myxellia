@@ -1,11 +1,7 @@
 "use client";
+import { CalendarProps } from "@/types/components";
 import Image from "next/image";
-import { Dispatch, useState } from "react";
-
-interface CalendarProps {
-  open: boolean;
-  setIsOpen: Dispatch<boolean>;
-}
+import { useState } from "react";
 
 export default function CalendarDrawer({ open, setIsOpen }: CalendarProps) {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -29,7 +25,7 @@ export default function CalendarDrawer({ open, setIsOpen }: CalendarProps) {
 
   return (
     <div
-      className={`z-50 fixed top-16 md:top-20 right-0 md:h-[calc(100dvh-80px)] h-[calc(100dvh-64px)] w-full md:w-[350px] bg-[#0D0D0D] text-white shadow-lg transform transition-transform duration-300 ease-in-out ${
+      className={`z-50 fixed top-16 md:top-20 right-0 md:h-[calc(100dvh-80px)] h-[calc(100dvh-64px)] w-full md:w-[400px] bg-[#0D0D0D] text-white shadow-lg transform transition-transform duration-300 ease-in-out flex flex-col ${
         open ? "translate-x-0" : "translate-x-full"
       }`}
     >
@@ -81,45 +77,54 @@ export default function CalendarDrawer({ open, setIsOpen }: CalendarProps) {
         </button>
       </div>
 
-      {/* Weekdays */}
-      <div className="grid grid-cols-7 text-center text-sm text-neutral-400 px-4">
-        {["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"].map((day) => (
-          <div key={day} className="py-2">
-            {day}
-          </div>
-        ))}
-      </div>
-
-      {/* Days */}
-      <div className="grid grid-cols-7 gap-1 px-4">
-        {Array(firstDayIndex)
-          .fill(null)
-          .map((_, i) => (
-            <div key={`empty-${i}`} />
-          ))}
-        {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((day) => {
-          const isSelected = selectedDate === day;
-          const isToday =
-            day === new Date().getDate() &&
-            currentDate.getMonth() === new Date().getMonth() &&
-            currentDate.getFullYear() === new Date().getFullYear();
-
-          return (
-            <button
+      <div className="flex-1 flex flex-col pb-10">
+        <div className="grid grid-cols-7 text-center text-sm text-neutral-400 px-4">
+          {["SUN", "MON", "TUE", "WED", "THURS", "FRI", "SAT"].map((day) => (
+            <div
               key={day}
-              onClick={() => setSelectedDate(day)}
-              className={`w-10 h-10 flex items-center justify-center rounded-full transition-colors ${
-                isSelected
-                  ? "bg-blue-600 text-white"
-                  : isToday
-                  ? "border border-blue-600 text-white"
-                  : "text-neutral-300 hover:bg-neutral-800"
-              }`}
+              className="py-2 text-[8px] text-left px-2 text-[#969696] font-medium border-[0.5px] border-[#242424] border-b-0"
             >
               {day}
-            </button>
-          );
-        })}
+            </div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-7 px-4 flex-1">
+          {Array(firstDayIndex)
+            .fill(null)
+            .map((_, i) => (
+              <div
+                key={`empty-${i}`}
+                className={`flex-1 transition-colors border-[0.5px] border-[#242424]`}
+              />
+            ))}
+          {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((day) => {
+            const isSelected = selectedDate === day;
+            const isToday =
+              day === new Date().getDate() &&
+              currentDate.getMonth() === new Date().getMonth() &&
+              currentDate.getFullYear() === new Date().getFullYear();
+
+            return (
+              <button
+                key={day}
+                onClick={() => setSelectedDate(day)}
+                className={`flex-1 p-1 flex items-start justify-start transition-colors border-[0.5px] border-[#242424]`}
+              >
+                <span
+                  className={`text-[10px] py-0.5 ${
+                    isSelected || isToday
+                      ? "bg-[#2525E6] text-white px-2 rounded-full"
+                      : "text-[#969696] px-1"
+                  }`}
+                >
+                  {" "}
+                  {day}
+                </span>
+              </button>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

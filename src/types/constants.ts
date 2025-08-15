@@ -30,3 +30,9 @@ export interface CHART_STAT {
   label: string;
   change: number;
 }
+
+export interface BUDGET {
+  title: string;
+  text: string;
+  icon: string;
+}

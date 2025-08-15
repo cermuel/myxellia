@@ -40,17 +40,17 @@ const SecondaryNavbar = () => {
           );
         })}
         <div className="flex-1 h-full xl:w-00px] flex items-center">
-          <div className="w-full bg-[#F5F5F5] h-[65%] xl:h-[75%] border border-[#E4E4E4] rounded-xl flex gap-2 px-2 md:px-4 items-center overflow-x-hidden max-xl:ml-4">
+          <div className="w-full bg-[#F5F5F5] h-[65%] border border-[#E4E4E4] rounded-xl flex gap-2 px-2 md:px-4 items-center overflow-x-hidden max-xl:ml-4">
             <Image
               src={"/icons/search.svg"}
               alt={`search icon`}
               width={100}
               height={100}
-              className="xl:w-5 xl:h-5 w-4 h-4"
+              className="xl:w-4.5 xl:h-4.5 w-4 h-4"
               priority
             />
             <input
-              type="text"
+              type="search"
               className="flex-1 outline-none truncate max-sm:text-xs max-xl:text-sm text-[15px]"
               placeholder="Search listings, users here..."
             />

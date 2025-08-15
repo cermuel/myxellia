@@ -1,3 +1,5 @@
+import { Dispatch } from "react";
+
 interface Stat {
   value: string;
   label: string;
@@ -13,4 +15,23 @@ export interface SalesCardProps {
   }[];
   stats: Stat[];
   dateRange: string;
+}
+
+export interface CalendarProps {
+  open: boolean;
+  setIsOpen: Dispatch<boolean>;
+}
+
+export interface BudgetingProps {
+  open: boolean;
+  setIsOpen: Dispatch<boolean>;
+}
+
+export interface ArrowIconProps {
+  color?: string;
+}
+
+export interface NavbarProps {
+  setOpenCalendar: Dispatch<boolean>;
+  setOpenBudgeting: Dispatch<boolean>;
 }

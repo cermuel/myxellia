@@ -79,7 +79,7 @@ const SalesCard = ({
               Showing overview {dateRange}
             </span>
           </div>
-          <button className="border border-[#D6D6D6] py-2 px-4 text-xs text-[#191919] font-medium rounded-full cursor-pointer">
+          <button className="border border-[#D6D6D6] md:py-2 md:px-4 px-3 py-1 text-xs text-[#191919] font-medium rounded-full cursor-pointer">
             View Transactions
           </button>
         </div>
@@ -95,7 +95,7 @@ const SalesCard = ({
 
       <div className="w-full h-[1px] bg-[#E4E4E4]"></div>
 
-      <div className="flex md:justify-between max-md:flex-wrap md:h-[250px]">
+      <div className="flex md:justify-between max-md:flex-wrap md:h-[250px] overflow-hidden">
         <div
           className={`transition-all duration-300 flex w-full pt-4 gap-2 pl-4 md:pl-2 overflow-x-hidden ${
             !showStats ? "max-w-full" : !showChart ? "max-w-0" : "max-w-[49%]"
@@ -121,8 +121,12 @@ const SalesCard = ({
         </div>
 
         <div
-          className={`flex p-4 pl-2 gap-2 max-md:!shadow-none md:rounded-l-xl transition-all duration-300 w-full max-md:!max-w-full ${
-            !showChart ? "max-w-full" : !showStats ? "max-w-0" : "max-w-[49%]"
+          className={`flex p-4 pr-4 pl-2 gap-2 max-md:!shadow-none md:rounded-l-xl transition-all duration-300 w-full max-md:!max-w-full ${
+            !showChart
+              ? "max-w-full"
+              : !showStats
+              ? "max-w-0 !p-0 !pr-5 !pl-1"
+              : "max-w-[49%]"
           }`}
           style={{ boxShadow: "-4px 0 1px -2px rgba(0,0,0,0.03)" }}
         >

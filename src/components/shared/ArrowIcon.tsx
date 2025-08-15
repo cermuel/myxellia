@@ -1,8 +1,5 @@
+import { ArrowIconProps } from "@/types/components";
 import React from "react";
-
-interface ArrowIconProps {
-  color?: string;
-}
 
 const ArrowCircleDown = ({ color = "#14B8A6" }: ArrowIconProps) => {
   return (

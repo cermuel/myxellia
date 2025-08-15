@@ -1,11 +1,8 @@
 import { constants } from "@/constants";
+import { NavbarProps } from "@/types/components";
 import Image from "next/image";
-import React, { Dispatch } from "react";
+import React from "react";
 
-interface NavbarProps {
-  setOpenCalendar: Dispatch<boolean>;
-  setOpenBudgeting: Dispatch<boolean>;
-}
 const Navbar = ({ setOpenBudgeting, setOpenCalendar }: NavbarProps) => {
   return (
     <nav className="z-10 fixed top-0 left-0 w-screen h-16 md:h-20 bg-[#191919] flex items-center justify-between md:px-10 px-4">
